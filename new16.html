@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clariva Intro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Lexend',sans-serif}
+
+body{
+background:#E6F0FA;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+.container{
+width:92%;
+height:92vh;
+background:#fff;
+border-radius:25px;
+display:flex;
+overflow:hidden;
+position:relative;
+}
+
+/* LEFT */
+.left{
+flex:1;
+padding-left:140px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+.brand{
+display:flex;
+gap:6px;
+font-size:4rem;
+font-weight:700;
+color:#000;
+margin-bottom:15px;
+}
+
+.brand span{
+opacity:0;
+transform:translateY(25px);
+animation:letters 0.4s forwards;
+}
+
+.brand span:nth-child(1){animation-delay:.3s}
+.brand span:nth-child(2){animation-delay:.6s}
+.brand span:nth-child(3){animation-delay:.9s}
+.brand span:nth-child(4){animation-delay:1.2s}
+.brand span:nth-child(5){animation-delay:1.5s}
+.brand span:nth-child(6){animation-delay:1.8s}
+.brand span:nth-child(7){animation-delay:2.1s}
+
+.tagline{
+font-size:2rem;
+opacity:0;
+animation:fadeIn 1s forwards;
+animation-delay:2.6s;
+}
+
+/* RIGHT VIDEO */
+.right{
+flex:1;
+background:#E6F0FA;
+border-top-left-radius:120px;
+border-bottom-left-radius:120px;
+overflow:hidden;
+}
+
+video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* ANIMATIONS */
+@keyframes letters{
+to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes fadeIn{
+to{opacity:1}
+}
+
+
+@media(max-width:900px){
+.container{flex-direction:column}
+.left{padding-left:40px}
+.brand{font-size:2.8rem}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="main">
+
+<div class="left">
+<div class="brand">
+<span>C</span><span>L</span><span>A</span><span>R</span>
+<span>I</span><span>V</span><span>A</span>
+</div>
+<div class="tagline">A Dyslexia Friendly Reader</div>
+</div>
+
+<div class="right">
+<video id="introVideo" autoplay muted playsinline>
+<source src="Video_Generation_Without_Watermark.mp4" type="video/mp4">
+</video>
+</div>
+
+</div>
+
+
+
+<script>
+const video = document.getElementById("introVideo");
+
+/* Force video to fit into 5 seconds */
+video.addEventListener("loadedmetadata", () => {
+  const duration = video.duration;
+  video.playbackRate = duration / 5;
+});
+
+setTimeout(() => {
+  window.location.href = "i3.html"; // go directly to scroll page
+}, 5000);
+
+</script>
+
+
+</body>
+</html>

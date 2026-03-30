@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard - CLARIVA</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <script>
+        // Protect dashboard
+        if (localStorage.getItem("adminLoggedIn") !== "true") {
+            window.location.href = "admin-login.html";
+        }
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Open Sans', Arial, sans-serif;
+            background-color: #f4f7fb;
+            color: #222;
+        }
+
+        .header {
+            padding: 25px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: 600;
+            background-color: #dbeafe;
+            color: #1e3a8a;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 12px;
+            width: 230px;
+            text-align: center;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            font-size: 34px;
+            color: #1e40af;
+        }
+
+        .logout {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            background: #1e40af;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    CLARIVA – Admin Dashboard
+</div>
+
+<div class="container">
+    <div class="card">
+        <h2 id="visits">0</h2>
+        <p>Total Visits</p>
+    </div>
+
+    <div class="card">
+        <h2 id="tts">0</h2>
+        <p>Total TTS Usage</p>
+    </div>
+
+    <div class="card">
+        <h2 id="stt">0</h2>
+        <p>Total STT Usage</p>
+    </div>
+</div>
+
+<div class="logout">
+    <button onclick="logout()">Logout</button>
+</div>
+
+<script>
+    window.onload = function() {
+
+        let visits = parseInt(localStorage.getItem("visits")) || 0;
+        let tts = parseInt(localStorage.getItem("tts")) || 0;
+        let stt = parseInt(localStorage.getItem("stt")) || 0;
+
+        document.getElementById("visits").innerText = visits;
+        document.getElementById("tts").innerText = tts;
+        document.getElementById("stt").innerText = stt;
+    };
+
+    function logout() {
+        localStorage.removeItem("adminLoggedIn");
+        window.location.href = "i3.html";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clariva</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --bg: #DCE9F7;
+  --text: #1F2E3D;
+  --muted: #4F6272;
+  --accent: #1E5AA8;
+
+  --shadow-extrude: 9px 9px 18px rgba(170,190,210,0.6),
+                    -9px -9px 18px rgba(255,255,255,0.7);
+
+  --shadow-inset: inset 10px 10px 22px rgba(160,180,205,0.7),
+                  inset -10px -10px 22px rgba(255,255,255,0.8);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Lexend", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* NAVBAR */
+
+.navbar {
+  background: var(--bg);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-extrude);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* HERO */
+
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 160px 20px 200px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: 64px;
+  margin-bottom: 10px;
+  color: var(--accent);
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-size: 24px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+/* Floating Circles */
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: var(--shadow-extrude);
+  animation: float 4s ease-in-out infinite;
+  z-index: 0;
+}
+
+.circle.small {
+  width: 120px;
+  height: 120px;
+  top: 12%;
+  left: 8%;
+}
+
+.circle.large {
+  width: 220px;
+  height: 220px;
+  bottom: 5%;
+  right: -60px;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0); }
+}
+
+/* SECTIONS */
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 20px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 100px;
+}
+
+.feature.reverse {
+  flex-direction: row-reverse;
+}
+
+.feature-text {
+  flex: 1;
+}
+
+.feature-text h2 {
+  color: var(--accent);
+  margin-bottom: 15px;
+}
+
+.feature-text p {
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* IMAGE BOX STYLE */
+
+.visual-box {
+  flex: 1;
+  height: 320px;
+  border-radius: 32px;
+  background: var(--bg);
+  box-shadow: var(--shadow-inset);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.visual-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 32px;
+}
+
+.visual-box:hover {
+  transform: scale(1.03);
+}
+
+/* FACTS */
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.fact-card {
+  padding: 35px;
+  border-radius: 32px;
+  background: var(--bg);
+  box-shadow: var(--shadow-extrude);
+  text-align: center;
+  color: var(--muted);
+}
+
+/* NEXT BUTTON */
+
+.next-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 14px 28px;
+  border-radius: 40px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-extrude);
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.next-btn:hover {
+  transform: translateY(-4px);
+  opacity: 0.9;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 768px) {
+  .feature, .feature.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+  <h2 style="color:var(--accent)">CLARIVA</h2>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#facts">Facts</a>
+    <a href="admin login.html">Admin</a>
+
+  </div>
+</div>
+
+<section class="hero">
+  <div class="circle small"></div>
+  <div class="circle large"></div>
+
+  <h1>CLARIVA</h1>
+  <div class="subtitle">A Dyslexia Friendly Reader</div>
+  <p>
+    Dyslexia-friendly reading assistant with intelligent formatting,
+    audio support, pronunciation guidance, and smart highlighting.
+  </p>
+</section>
+
+<section id="features" class="container">
+
+  <!-- UPDATED IMAGE HERE -->
+  <div class="feature">
+    <div class="feature-text">
+      <h2>Text Formatting</h2>
+      <p>The text formatting feature enables users to personalize font style, spacing, and color to create a comfortable and dyslexia-friendly reading environment. This adaptive layout reduces visual stress and improves readability.</p>
+    </div>
+    <div class="visual-box">
+      <img src="tform.jpeg" alt="Text Formatting Settings">
+    </div>
+  </div>
+
+  <!-- Rest unchanged -->
+  <div class="feature reverse">
+    <div class="feature-text">
+      <h2>Text-to-Speech</h2>
+      <p>The text-to-speech feature allows users to listen to words either by long-pressing individual text or by using a read-aloud option for continuous audio support. This enhances comprehension, reinforces word recognition, and supports multisensory learning.</p>
+    </div>
+    <div class="visual-box">
+    <img src="ttos.jpeg" alt="Text to Speech">
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-text">
+      <h2>Speech-to-Text</h2>
+      <p>The speech-to-text feature evaluates the user’s pronunciation by converting spoken words into text and instantly providing feedback through a pop-up. This interactive correction mechanism helps users practice accurate pronunciation and build reading confidence.</p>
+    </div>
+    <div class="visual-box">
+       <img src="stot.png" alt="Speech to text"> 
+    </div>
+  </div>
+
+  <div class="feature reverse">
+    <div class="feature-text">
+      <h2>Text Highlighting</h2>
+      <p>The first letter is made bold along with highlighting vowels and confusing letter pairs.</p>
+    </div>
+    <div class="visual-box">
+        <img src="form.jpeg" alt="Text Highlighting">
+    </div>
+  </div>
+
+</section>
+
+<section id="facts" class="container">
+  <h2 style="text-align:center;color:var(--accent);margin-bottom:30px;">
+    Facts About Dyslexia
+  </h2>
+
+  <div class="facts-grid">
+    <div class="fact-card">1 in 10 people worldwide experience dyslexia.</div>
+    <div class="fact-card">It affects reading, not intelligence.</div>
+    <div class="fact-card">Multisensory learning improves retention.</div>
+    <div class="fact-card">Early support builds confidence.</div>
+  </div>
+</section>
+
+<button class="next-btn" onclick="goNext()">Next →</button>
+
+<button class="next-btn" onclick="goNext()">Next →</button>
+
+<script>
+function goNext() {
+  window.location.href = "pref.html"; // or any page after i3.html
+}
+</script>
+
+
+</body>
+</html>
