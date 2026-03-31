@@ -12,5 +12,4 @@ export const DEFAULT_PREFS = {
     text_color: "black",
     active_highlights: ["vowel_coloring"],
     active_confusing_groups: [],
-    voice_accent: "en-IN",
 };
